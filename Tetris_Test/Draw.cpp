@@ -27,10 +27,14 @@ void Draw::unite( Tetris &t)
 			{
 				data[t.x() + x][t.y() + y] = true;
 			}
+}
+
+void Draw::clearline()
+{
 	for (int y = H - 1; y >= 0; --y)
 	{
 		bool Sol = true;
-		for(int x = 0 ; x < W; ++x)
+		for (int x = 0; x < W; ++x)
 			if (!data[x][y])
 			{
 				Sol = false;
@@ -46,6 +50,7 @@ void Draw::unite( Tetris &t)
 		}
 	}
 }
+
 
 bool Draw::Collision( Tetris &t) 
 {

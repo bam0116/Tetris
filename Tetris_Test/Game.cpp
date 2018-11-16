@@ -6,7 +6,6 @@ Game::Game() :g_tetris{ static_cast<Tetris::Kind>(rand() % 7) }, g_moveTime(SDL_
 {
 	SDL_CreateWindowAndRenderer(720 / 2, 720, SDL_WINDOW_OPENGL | SDL_WINDOW_BORDERLESS, &g_window, &g_renderer);
 	SDL_SetWindowPosition(g_window, 65, 126);
-
 }
 
 Game::~Game()
@@ -15,7 +14,6 @@ Game::~Game()
 	SDL_DestroyWindow(g_window);
 	SDL_Quit();
 }
-
 bool Game::Start()
 {
 	SDL_Event e;
@@ -66,6 +64,7 @@ bool Game::Start()
 			return false;
 	}	
 	}
+	g_draw.clearline();
 	SDL_SetRenderDrawColor(g_renderer, 0, 0, 0, 255);
 	SDL_RenderClear(g_renderer);
 	g_draw.draw(g_renderer);
